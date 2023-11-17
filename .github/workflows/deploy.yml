@@ -19,7 +19,8 @@ jobs:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          script: touch mkdir new
+          script: touch mkdir elumalai
+        - run: cd elumalai/       
       #- name: Checkout the code
       #  uses: actions/checkout@v4
       #  with:
