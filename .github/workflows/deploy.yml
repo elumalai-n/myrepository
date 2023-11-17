@@ -10,12 +10,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v2
       - name: Create and Change to Directory
         run: |
           mkdir my_directory
           cd my_directory
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+      
       - name: executing remote ssh commands using ssh key
         uses: appleboy/ssh-action@v1.0.0
         with:
