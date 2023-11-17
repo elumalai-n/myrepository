@@ -12,8 +12,8 @@ jobs:
     steps:
       - name: Create and Change to Directory
         run: |
-          mkdir my_directory
-          cd my_directory
+          cd /opt
+          mkdir new
       - name: List Contents of the Directory
         run: |
           ls -la
