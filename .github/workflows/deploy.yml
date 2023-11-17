@@ -14,6 +14,9 @@ jobs:
         run: |
           mkdir my_directory
           cd my_directory
+      - name: List Contents of the Directory
+        run: |
+          ls -la
       - name: Checkout Repository
         uses: actions/checkout@v2
       
