@@ -20,10 +20,10 @@ jobs:
           username: ${{ secrets.USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: touch mkdir new
-      - name: Checkout the code
-        uses: actions/checkout@v4
-        with:
-          node-version: '14'
-      - run: sudo apt-get update
-      - run: sudo apt-get install node.js -y
-      - run: node -v
+      #- name: Checkout the code
+      #  uses: actions/checkout@v4
+      #  with:
+      #    node-version: '14'
+          - run: sudo apt-get update
+          - run: sudo apt-get install node.js -y
+          - run: node -v
