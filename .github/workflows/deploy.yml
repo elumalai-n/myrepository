@@ -21,4 +21,4 @@ jobs:
       - name: Connect to EC2
         run: |
           # Replace <your-ec2-ip> and <your-ec2-username> with your EC2 details
-          ssh -o StrictHostKeyChecking=no -i ${{ secrets.SSH_PRIVATE_KEY }}  ${{ secrets.USER }} ${{ secrets.SSH_HOST }}"echo Hello from GitHub Actions!"
+          ssh -o StrictHostKeyChecking=no -i ${{ secrets.SSH_PRIVATE_KEY }} <ubuntu>@<3.110.184.145>"echo Hello from GitHub Actions!"
