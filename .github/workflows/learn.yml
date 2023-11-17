@@ -1,5 +1,5 @@
 #The name of the workflow
-name: learn-github-actions
+name: push to ec2
 #display the username of the actor that triggered the workflow run
 run-name: ${{ github.actor }} is learning GitHub Actions
 # trigger for this workflow. This example uses the push event
@@ -12,9 +12,22 @@ on: [push]
 #uses: actions/setup-node@v3-This step uses the actions/setup-node@v3 action to install the specified version of the Node.js
 #run:The run keyword tells the job to execute a command on the runner.run the bats command it will show the version
 jobs:
+  deploy:
+    name: Push to EC2 Instance
+    runs-on: ubuntu-latest
   check-bats-version:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout the code
+        uses: actions/checkout@v1
+      - name: Deploy to my EC2 instance
+        uses: easingthemes/ssh-deploy@v2.1.5
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          SOURCE: "./"
+          REMOTE_HOST: "ec2-3-110-184-145.ap-south-1.compute.amazonaws.com"
+          REMOTE_USER: "ubuntu"
+          TARGET: "/home/ubuntu"
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v3
         with:
