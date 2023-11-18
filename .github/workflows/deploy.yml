@@ -20,6 +20,7 @@ jobs:
             mkdir elumalai
             cd elumalai
             workdir ./
+            newfile
             sudo apt-get update
             sudo apt-get install node.js -y
             node -v
