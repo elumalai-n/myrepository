@@ -20,6 +20,6 @@ jobs:
             sudo apt-get update
             sudo apt-get install node.js -y
             node -v
-            sudo apt install npm
+            sudo apt-get install npm -y
             npm --version
 
