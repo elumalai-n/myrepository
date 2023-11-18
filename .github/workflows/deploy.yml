@@ -1,12 +1,20 @@
 name: Deploy to EC2
-'on': [ push ]
-    
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '/home/ubuntu/myrepositiry*'
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
+      - name: Run Commands in a Specific Directory
+        env:
+          working-directory: https://github.com/elumalai-n/myrepository
+          branch: main
       - name: executing remote ssh commands using ssh key
         uses: appleboy/ssh-action@v1.0.0
         with:
@@ -20,23 +28,3 @@ jobs:
             sudo apt-get update
             sudo apt-get install node.js -y
             node -v
-  build:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        go-version: [ '1.19', '1.20', '1.21.x' ]
-    steps:
-      - uses: actions/checkout@v4
-      - name: Setup Go ${{ matrix.go-version }}
-        uses: actions/setup-go@v4
-        with:
-          host: '${{ secrets.SSH_HOST }}'
-          username: '${{ secrets.USER }}'
-          key: '${{ secrets.SSH_PRIVATE_KEY }}'
-          working-directory: '${{ secrets.WORK_DIR }}'
-          script: |
-            go-version: ${{ matrix.go-version }}
-            
-      # You can test your matrix by printing the current Go version
-      - name: Display Go version
-        run: go version
