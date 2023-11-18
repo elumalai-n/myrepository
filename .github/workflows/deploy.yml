@@ -13,6 +13,7 @@ jobs:
           host: '${{ secrets.SSH_HOST }}'
           username: '${{ secrets.USER }}'
           key: '${{ secrets.SSH_PRIVATE_KEY }}'
+          working-directory: '${{ secrets.WORK_DIR }}'
           timeout: 30s
-          script: elu
+          script: touch elu
             
