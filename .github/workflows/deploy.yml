@@ -7,10 +7,6 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
-      - name: Run Commands in a Specific Directory
-        env:
-          working-directory: 'https://github.com/elumalai-n/myrepository'
-          branch: main
       - name: executing remote ssh commands using ssh key
         uses: appleboy/ssh-action@v1.0.0
         with:
