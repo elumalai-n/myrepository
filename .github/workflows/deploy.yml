@@ -1,10 +1,10 @@
 name: Deploy to EC2
-on:
+'on':
   push:
     branches:
       - main
     paths:
-      - '/home/ubuntu/myrepositiry*'
+      - /home/ubuntu/myrepositiry*
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -13,7 +13,7 @@ jobs:
         uses: actions/checkout@v2
       - name: Run Commands in a Specific Directory
         env:
-          working-directory: https://github.com/elumalai-n/myrepository
+          working-directory: 'https://github.com/elumalai-n/myrepository'
           branch: main
       - name: executing remote ssh commands using ssh key
         uses: appleboy/ssh-action@v1.0.0
@@ -28,3 +28,4 @@ jobs:
             sudo apt-get update
             sudo apt-get install node.js -y
             node -v
+
