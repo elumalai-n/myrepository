@@ -18,8 +18,6 @@ jobs:
           #workdir: '${{ secrets.WORK_DIR }}'
           #branch: '${{ secrets.MAIN_BRANCH }}'
           script: touch  new
-          run: |
-            cd /opt
-            mkdir new
-            run: |
-            ls -la  
+                  cd /opt
+                  mkdir new
+                  ls -la  
