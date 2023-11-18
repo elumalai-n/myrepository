@@ -18,7 +18,6 @@ jobs:
           timeout: 30s
           script: |
             pwd
-            sudo su
             sudo apt-get update
             sudo apt-get install node.js -y
             node -v
