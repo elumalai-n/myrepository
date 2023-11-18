@@ -14,7 +14,7 @@ jobs:
           username: '${{ secrets.USER }}'
           key: '${{ secrets.SSH_PRIVATE_KEY }}'
           timeout: 30s
-          scriptt:
+          script:
             ls -la 
             sudo su
             sudo apt-get update
