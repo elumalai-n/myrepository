@@ -26,4 +26,4 @@ jobs:
             npm --version
       - name: Deploy to EC2
         run: |
-          cd /home/ubuntu/myrepository/ && git pull origin main
+          cd /home/ubuntu/myrepository && git pull origin main
