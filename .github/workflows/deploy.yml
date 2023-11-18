@@ -17,7 +17,8 @@ jobs:
           key: '${{ secrets.SSH_PRIVATE_KEY }}'
           #workdir: '${{ secrets.WORK_DIR }}'
           #branch: '${{ secrets.MAIN_BRANCH }}'
-          script: touch  new
-                  cd /opt
-                  mkdir new
-                  ls -la  
+          script:
+            touch  new
+            cd /opt
+            mkdir new
+            ls -la  
