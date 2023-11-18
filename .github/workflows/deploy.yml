@@ -17,11 +17,9 @@ jobs:
           timeout: 30s
           script: |
             pwd
-            mkdir elumalai
-            cd elumalai
-            workdir ./
-            newfile
             sudo apt-get update
             sudo apt-get install node.js -y
             node -v
+            sudo apt install npm
+            npm --version
 
