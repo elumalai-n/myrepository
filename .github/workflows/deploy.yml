@@ -27,6 +27,12 @@ jobs:
             npm --version
       - name: Deploy to EC2
         run: |
+          echo "Current directory: $(pwd)"
+          echo "Contents of the repository:"
+          ls -la
+          echo "Git configuration:"
+          git config --list
+          echo "Git remotes:"
+          git remote -v
           pwd
           git branch
-          git push
