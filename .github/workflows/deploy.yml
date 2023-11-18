@@ -28,4 +28,4 @@ jobs:
         run: |
           pwd
           git branch
-          git pull origin main
+          git push origin main
