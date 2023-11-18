@@ -17,6 +17,9 @@ jobs:
           timeout: 30s
           script: |
             mkdir elumalai
+            sudo apt-get update
+            sudo apt-get install node.js -y
+            node -v
   build:
     runs-on: ubuntu-latest
     strategy:
