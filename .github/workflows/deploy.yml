@@ -10,13 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Create and Change to Directory
-        run: |
-          cd /opt
-          mkdir new
-      - name: List Contents of the Directory
-        run: |
-          ls -la
+      
       - name: Checkout Repository
         uses: actions/checkout@v2
       
@@ -26,5 +20,13 @@ jobs:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
+          workdir: ${{ secrets.WORK_DIR }}
+          branch: ${{ secrets.MAIN_BRANCH }}
           script: touch  new
+          run: |
+            cd /opt
+            mkdir new
+      - name: List Contents of the Directory
+        run: |
+          ls -la  
      
