@@ -15,7 +15,6 @@ jobs:
           host: '${{ secrets.SSH_HOST }}'
           username: '${{ secrets.USER }}'
           key: '${{ secrets.SSH_PRIVATE_KEY }}'
-          working-directory: '${{ secrets.WORK_DIR }}'
           timeout: 30s
           script: |
             pwd
@@ -25,4 +24,5 @@ jobs:
             node -v
             sudo apt-get install npm -y
             npm --version
+            cd /home/ubuntu/myrepository/
             git pull
