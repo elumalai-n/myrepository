@@ -25,5 +25,4 @@ jobs:
             node -v
             sudo apt-get install npm -y
             npm --version
-            git branch
             git pull
