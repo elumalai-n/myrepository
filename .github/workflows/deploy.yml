@@ -27,5 +27,4 @@ jobs:
       - name: Deploy to EC2
         run: |
           pwd
-          cd myrepository 
           git pull origin main
