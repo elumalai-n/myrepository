@@ -1,32 +1,25 @@
 name: Deploy to EC2
-
-on:
+'on':
   push:
     branches:
       - main
-
 jobs:
   deploy:
     runs-on: ubuntu-latest
-
     steps:
-      
       - name: Checkout Repository
         uses: actions/checkout@v2
-      
       - name: executing remote ssh commands using ssh key
         uses: appleboy/ssh-action@v1.0.0
         with:
-          host: ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.USER }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          workdir: ${{ secrets.WORK_DIR }}
-          branch: ${{ secrets.MAIN_BRANCH }}
+          host: '${{ secrets.SSH_HOST }}'
+          username: '${{ secrets.USER }}'
+          key: '${{ secrets.SSH_PRIVATE_KEY }}'
+          #workdir: '${{ secrets.WORK_DIR }}'
+          #branch: '${{ secrets.MAIN_BRANCH }}'
           script: touch  new
           run: |
             cd /opt
             mkdir new
-      - name: List Contents of the Directory
-        run: |
-          ls -la  
-     
+            run: |
+            ls -la  
