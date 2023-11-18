@@ -15,7 +15,7 @@ jobs:
           host: '${{ secrets.SSH_HOST }}'
           username: '${{ secrets.USER }}'
           key: '${{ secrets.SSH_PRIVATE_KEY }}'
-          #workdir: '${{ secrets.WORK_DIR }}'
+          workdir: '${{ secrets.WORK_DIR }}'
           #branch: '${{ secrets.MAIN_BRANCH }}'
           script:
             touch  new
