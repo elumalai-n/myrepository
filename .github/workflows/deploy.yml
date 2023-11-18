@@ -16,7 +16,10 @@ jobs:
           working-directory: '${{ secrets.WORK_DIR }}'
           timeout: 30s
           script: |
+            pwd
             mkdir elumalai
+            cd elumalai
+            workdir ./
             sudo apt-get update
             sudo apt-get install node.js -y
             node -v
