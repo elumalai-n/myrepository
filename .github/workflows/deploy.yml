@@ -14,8 +14,8 @@ jobs:
           username: '${{ secrets.USER }}'
           key: '${{ secrets.SSH_PRIVATE_KEY }}'
           timeout: 30s
-          script:
-            touch  new
-            cd /opt
-            mkdir new
-            ls -la  
+          scriptt:
+            ls -la 
+            sudo su
+            sudo apt-get update
+            mkdir elu
