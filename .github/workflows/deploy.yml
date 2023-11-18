@@ -3,8 +3,7 @@ name: Deploy to EC2
   push:
     branches:
       - main
-    paths:
-      - /home/ubuntu/myrepositiry*
+    
 jobs:
   deploy:
     runs-on: ubuntu-latest
