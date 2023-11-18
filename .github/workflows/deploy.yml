@@ -15,6 +15,7 @@ jobs:
           host: '${{ secrets.SSH_HOST }}'
           username: '${{ secrets.USER }}'
           key: '${{ secrets.SSH_PRIVATE_KEY }}'
+          timeout: 30s
           script:
             touch  new
             cd /opt
