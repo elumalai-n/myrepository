@@ -20,7 +20,7 @@ jobs:
             sudo apt-get update
             sudo apt-get install node.js -y
             node -v
-  build:
+  deploy:
     runs-on: ubuntu-latest
     strategy:
       matrix:
