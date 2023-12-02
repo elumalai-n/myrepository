@@ -12,10 +12,10 @@ jobs:
       uses: actions/checkout@v2
     - name: Set up Docker
       uses: actions/setup-docker@v2
-    - name: Build Docker Image
-      run: docker build -t nginx.
     - name: Log in to Docker Hub (or your container registry)
       run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+    - name: Build Docker Image
+      run: docker build -t nginx
     - name: Push Docker Image
       run: docker push nginx
   deploy:
@@ -46,6 +46,21 @@ jobs:
         username: ${{ secrets.USER }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: |
+          sudo apt-get update
+          sudo apt-get install -y docker.io
+          sudo apt-get update
+          sudo apt-get install -y apt-transport-https gnupg
+          sudo curl -fsSLo /usr/share/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg
+          echo "deb [signed-by=/usr/share/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list > /dev/null
+          sudo apt-get update
+          sudo apt-get install -y kubectl
+          sudo mv kubectl /usr/local/bin
+          curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.14.0/kind-linux-amd64
+          chmod +x ./kind
+          sudo mv ./kind /bin/kind
+          sudo kind create cluster
+          sudo kind create cluster --name=mycluster
+          sudo kubectl get nodes
           cd /home/ubuntu/myrepository/
           kubectl apply -f deployment.yaml
 
